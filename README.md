@@ -41,10 +41,12 @@ Example Playbook
 -------------------------
 
     - hosts: servers
+      vars:
+        new_user: example
       roles:
          - role: avanov.pyenv
-           pyenv_path: "{{ home }}/pyenv"
-           pyenv_owner: "{{ instance_owner }}"
+           pyenv_path: "/home/{{ new_user }}/pyenv"
+           pyenv_owner: "{{ new_user }}"
            pyenv_global: "3.6.5"
            pyenv_update_git_install: no
            pyenv_enable_autocompletion: no
